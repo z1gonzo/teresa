@@ -1,0 +1,1326 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domek nad Bałtykiem – Teresa</title>
+    <meta
+      name="description"
+      content="Przytulny domek letniskowy nad Bałtykiem do wynajęcia. Idealne miejsce na wakacje z rodziną lub przyjaciółmi. Sprawdź dostępność i skontaktuj się z nami."
+    />
+    <meta
+      name="keywords"
+      content="domek nad morzem, wynajem domku Bałtyk, domek letniskowy, grzybowo, kołobrzeg, wakacje nad morzem"
+    />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Domek Teresa – Wynajem" />
+    <meta
+      property="og:description"
+      content="Przytulny domek letniskowy nad Bałtykiem. Idealne wakacje z rodziną."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ═══════════════════════════════════════
+       UWAGA DLA DEWELOPERA:
+       Formularz kontaktowy używa Web3Forms (darmowy, bez limitu).
+       1. Wejdź na https://web3forms.com
+       2. Wpisz swój adres Gmail
+       3. Skopiuj klucz access_key
+       4. Wklej go w polu <input name="access_key" value="TWOJ_KLUCZ_TUTAJ">
+       ═══════════════════════════════════════ -->
+
+    <style>
+      /* ── RESET & BASE ─────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      :root {
+        --white: #ffffff;
+        --deep-sea: #315262;
+        --taupe-wood: #eecda4;
+        --pure-water: #558ea5;
+        --taupe-sand: #ecdcc9;
+        --text-dark: #1e3340;
+        --ff-serif: 'Cormorant Garamond', Georgia, serif;
+        --ff-sans: 'Jost', sans-serif;
+        --radius: 4px;
+        --transition: 0.35s ease;
+      }
+
+      body {
+        font-family: var(--ff-sans);
+        color: var(--text-dark);
+        background: var(--white);
+        overflow-x: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ── NAVIGATION ───────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 5%;
+        transition:
+          background var(--transition),
+          box-shadow var(--transition);
+      }
+      nav.scrolled {
+        background: rgba(49, 82, 98, 0.97);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+      }
+      .nav-logo {
+        font-family: var(--ff-serif);
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        color: var(--white);
+      }
+      .nav-logo span {
+        color: var(--taupe-wood);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.4rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        transition: color var(--transition);
+      }
+      .nav-links a:hover {
+        color: var(--taupe-wood);
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        transition: var(--transition);
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--deep-sea);
+        z-index: 99;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-family: var(--ff-serif);
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--white);
+        letter-spacing: 0.06em;
+        transition: color var(--transition);
+      }
+      .mobile-menu a:hover {
+        color: var(--taupe-wood);
+      }
+
+      /* ── HERO ─────────────────────────────────── */
+      #home {
+        position: relative;
+        height: 100svh;
+        min-height: 600px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(49, 82, 98, 0.55) 0%,
+            rgba(49, 82, 98, 0.15) 40%,
+            rgba(30, 51, 64, 0.7) 100%
+          ),
+          /* Placeholder – zamień src na własne zdjęcie */
+          url('http://www.nadmorzem.net/grzybowo/pokoje/teresa/galerie/9718/images/001.jpg')
+            center/cover no-repeat;
+        transform: scale(1.04);
+        animation: heroZoom 12s ease-out forwards;
+      }
+      @keyframes heroZoom {
+        from {
+          transform: scale(1.04);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      /* Subtle wave overlay */
+      .hero-wave {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 120px;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 8% 7%;
+        animation: fadeUp 1s 0.4s both;
+      }
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--taupe-wood);
+        margin-bottom: 1rem;
+      }
+      .hero-title {
+        font-family: var(--ff-serif);
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: var(--white);
+        margin-bottom: 1.6rem;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--taupe-wood);
+      }
+      .hero-sub {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 440px;
+        line-height: 1.7;
+        margin-bottom: 2.4rem;
+      }
+      .btn-primary {
+        display: inline-block;
+        padding: 0.95rem 2.6rem;
+        background: var(--taupe-wood);
+        color: var(--deep-sea);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition:
+          background var(--transition),
+          transform var(--transition);
+        border-radius: var(--radius);
+      }
+      .btn-primary:hover {
+        background: #f5d9b2;
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        display: inline-block;
+        padding: 0.95rem 2.6rem;
+        background: transparent;
+        color: var(--white);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition:
+          border-color var(--transition),
+          color var(--transition);
+        border-radius: var(--radius);
+        margin-left: 1rem;
+      }
+      .btn-ghost:hover {
+        border-color: var(--taupe-wood);
+        color: var(--taupe-wood);
+      }
+
+      /* ── SECTION BASE ─────────────────────────── */
+      section {
+        padding: 6rem 8%;
+      }
+      .section-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--pure-water);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-family: var(--ff-serif);
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--deep-sea);
+        margin-bottom: 1.5rem;
+      }
+      .section-title em {
+        font-style: italic;
+      }
+
+      /* ── ABOUT / FEATURES ─────────────────────── */
+      #about {
+        background: var(--taupe-sand);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .about-text p {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: #3d5160;
+        margin-bottom: 1rem;
+      }
+      .about-image {
+        position: relative;
+        height: 460px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 24px 24px 0 var(--pure-water);
+      }
+      .about-image img {
+        border-radius: var(--radius);
+      }
+
+      /* ── FEATURES STRIP ──────────────────────── */
+      .features {
+        background: var(--deep-sea);
+        padding: 4rem 8%;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+      }
+      .feature-item {
+        text-align: center;
+        padding: 1.5rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        transition:
+          border-color var(--transition),
+          background var(--transition);
+      }
+      .feature-item:hover {
+        border-color: var(--taupe-wood);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+      }
+      .feature-label {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .feature-value {
+        font-family: var(--ff-serif);
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: var(--taupe-wood);
+        margin-top: 0.25rem;
+      }
+
+      /* ── GALLERY ─────────────────────────────── */
+      #gallery {
+        background: var(--white);
+      }
+      .gallery-intro {
+        max-width: 560px;
+        margin-bottom: 3rem;
+      }
+      .gallery-intro p {
+        font-size: 0.95rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: #4a6475;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(3, 220px);
+        gap: 12px;
+      }
+      .gallery-item {
+        overflow: hidden;
+        border-radius: var(--radius);
+        position: relative;
+        cursor: pointer;
+      }
+      .gallery-item img {
+        transition: transform 0.6s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.06);
+      }
+      .gallery-item:nth-child(1) {
+        grid-column: 1 / 8;
+        grid-row: 1 / 3;
+      }
+      .gallery-item:nth-child(2) {
+        grid-column: 8 / 13;
+        grid-row: 1 / 2;
+      }
+      .gallery-item:nth-child(3) {
+        grid-column: 8 / 13;
+        grid-row: 2 / 3;
+      }
+      .gallery-item:nth-child(4) {
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+      }
+      .gallery-item:nth-child(5) {
+        grid-column: 5 / 9;
+        grid-row: 3 / 4;
+      }
+      .gallery-item:nth-child(6) {
+        grid-column: 9 / 13;
+        grid-row: 3 / 4;
+      }
+
+      /* Caption overlay */
+      .gallery-item .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(transparent, rgba(49, 82, 98, 0.75));
+        color: var(--white);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+      }
+      .gallery-item:hover .caption {
+        transform: translateY(0);
+      }
+
+      /* Lightbox */
+      #lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(30, 51, 64, 0.95);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+      }
+      #lightbox.active {
+        display: flex;
+      }
+      #lightbox img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+        border-radius: var(--radius);
+      }
+      #lightbox-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        color: var(--white);
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: var(--ff-sans);
+        transition: color var(--transition);
+      }
+      #lightbox-close:hover {
+        color: var(--taupe-wood);
+      }
+
+      /* ── PRICING ─────────────────────────────── */
+      #pricing {
+        background: var(--taupe-sand);
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .pricing-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 2.5rem 2rem;
+        border: 1px solid rgba(49, 82, 98, 0.12);
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition);
+      }
+      .pricing-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(49, 82, 98, 0.12);
+      }
+      .pricing-card.featured {
+        background: var(--deep-sea);
+        color: var(--white);
+      }
+      .pricing-season {
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pure-water);
+        margin-bottom: 0.5rem;
+      }
+      .pricing-card.featured .pricing-season {
+        color: var(--taupe-wood);
+      }
+      .pricing-name {
+        font-family: var(--ff-serif);
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--deep-sea);
+        margin-bottom: 1.5rem;
+      }
+      .pricing-card.featured .pricing-name {
+        color: var(--white);
+      }
+      .pricing-price {
+        font-family: var(--ff-serif);
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--deep-sea);
+        line-height: 1;
+      }
+      .pricing-card.featured .pricing-price {
+        color: var(--taupe-wood);
+      }
+      .pricing-price span {
+        font-family: var(--ff-sans);
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: #6b8a9b;
+        vertical-align: super;
+      }
+      .pricing-card.featured .pricing-price span {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .pricing-note {
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: #6b8a9b;
+        margin-top: 0.5rem;
+      }
+      .pricing-card.featured .pricing-note {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .pricing-divider {
+        border: none;
+        border-top: 1px solid rgba(49, 82, 98, 0.1);
+        margin: 1.5rem 0;
+      }
+      .pricing-card.featured .pricing-divider {
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .pricing-includes {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .pricing-includes li {
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: #4a6475;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .pricing-card.featured .pricing-includes li {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .pricing-includes li::before {
+        content: '✓';
+        font-size: 0.7rem;
+        color: var(--pure-water);
+        font-weight: 700;
+      }
+      .pricing-card.featured .pricing-includes li::before {
+        color: var(--taupe-wood);
+      }
+
+      /* ── CONTACT ─────────────────────────────── */
+      #contact {
+        background: var(--deep-sea);
+      }
+      #contact .section-title {
+        color: var(--white);
+      }
+      #contact .section-eyebrow {
+        color: var(--taupe-wood);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .contact-info p {
+        font-size: 0.95rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 2rem;
+      }
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .contact-detail-icon {
+        font-size: 1.1rem;
+      }
+      .contact-detail-text {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .contact-detail-text a {
+        color: var(--taupe-wood);
+        transition: opacity var(--transition);
+      }
+      .contact-detail-text a:hover {
+        opacity: 0.75;
+      }
+
+      /* Form */
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .form-field label {
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .form-field input,
+      .form-field textarea,
+      .form-field select {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius);
+        color: var(--white);
+        font-family: var(--ff-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        padding: 0.85rem 1rem;
+        transition:
+          border-color var(--transition),
+          background var(--transition);
+        outline: none;
+        width: 100%;
+      }
+      .form-field input::placeholder,
+      .form-field textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .form-field input:focus,
+      .form-field textarea:focus,
+      .form-field select:focus {
+        border-color: var(--taupe-wood);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .form-field select option {
+        background: var(--deep-sea);
+        color: var(--white);
+      }
+      .form-field textarea {
+        resize: vertical;
+        min-height: 130px;
+      }
+      .form-submit {
+        margin-top: 0.5rem;
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 1.05rem;
+        background: var(--taupe-wood);
+        color: var(--deep-sea);
+        font-family: var(--ff-sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition:
+          background var(--transition),
+          transform var(--transition);
+      }
+      .btn-submit:hover {
+        background: #f5d9b2;
+        transform: translateY(-2px);
+      }
+      .form-success {
+        display: none;
+        padding: 1.2rem;
+        background: rgba(85, 142, 165, 0.2);
+        border: 1px solid var(--pure-water);
+        border-radius: var(--radius);
+        color: var(--white);
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      /* ── FOOTER ───────────────────────────────── */
+      footer {
+        background: var(--text-dark);
+        padding: 2.5rem 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-logo {
+        font-family: var(--ff-serif);
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.06em;
+      }
+      .footer-logo span {
+        color: var(--taupe-wood);
+      }
+      .footer-copy {
+        font-size: 0.72rem;
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      /* ── ANIMATIONS ───────────────────────────── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ───────────────────────────── */
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .about-image {
+          height: 300px;
+          box-shadow: 12px 12px 0 var(--pure-water);
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(4, 200px);
+        }
+        .gallery-item:nth-child(1) {
+          grid-column: 1/3;
+          grid-row: 1/2;
+        }
+        .gallery-item:nth-child(2) {
+          grid-column: 1/2;
+          grid-row: 2/3;
+        }
+        .gallery-item:nth-child(3) {
+          grid-column: 2/3;
+          grid-row: 2/3;
+        }
+        .gallery-item:nth-child(4) {
+          grid-column: 1/2;
+          grid-row: 3/4;
+        }
+        .gallery-item:nth-child(5) {
+          grid-column: 2/3;
+          grid-row: 3/4;
+        }
+        .gallery-item:nth-child(6) {
+          grid-column: 1/3;
+          grid-row: 4/5;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 4rem 6%;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .hero-content {
+          padding: 0 6% 5%;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.75rem;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── NAV ─────────────────────────────────────── -->
+    <nav id="navbar">
+      <div class="nav-logo">Dom<span> letniskowy&nbsp;Teresa</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">O&nbsp;nas</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#pricing">Cennik</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#home" onclick="closeMobileMenu()">Home</a>
+      <a href="#about" onclick="closeMobileMenu()">O nas</a>
+      <a href="#gallery" onclick="closeMobileMenu()">Galeria</a>
+      <a href="#pricing" onclick="closeMobileMenu()">Cennik</a>
+      <a href="#contact" onclick="closeMobileMenu()">Kontakt</a>
+    </div>
+
+    <!-- ─── HERO ─────────────────────────────────────── -->
+    <section id="home">
+      <div class="hero-bg"></div>
+      <svg
+        class="hero-wave"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"
+          fill="#ECDCC9"
+        />
+      </svg>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Wynajem · Bałtyk · Grzybowo · Kołobrzeg</p>
+        <h1 class="hero-title">Twoje miejsce<br />nad <em>morzem</em></h1>
+        <p class="hero-sub">
+          Przytulny domek letniskowy w cichej okolicy, kilka kroków od plaży.
+          Idealne wakacje dla rodzin i par.
+        </p>
+        <a href="#contact" class="btn-primary">Sprawdź dostępność</a>
+        <a href="#gallery" class="btn-ghost">Zobacz zdjęcia</a>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─────────────────────────────────────── -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-eyebrow">O domku</p>
+          <h2 class="section-title">
+            Spokój,<br />morski <em>klimat</em><br />i własna przestrzeń
+          </h2>
+          <p>
+            Nasz domek to idealne miejsce dla tych, którzy chcą uciec od zgiełku
+            miasta i spędzić czas w otoczeniu natury. Plaża oddalona jest
+            zaledwie kilka minut spacerem.
+          </p>
+          <p>
+            Domek jest w pełni wyposażony – Do dyspozycji gości jest aneks
+            kuchenny (lodówka, mikrofala, płyta, czajnik, naczynia) - bez
+            problemu można przygotować śniadanie i kolację.
+          </p>
+          <p>
+            W obiekcie znajduje się 6 pokoi 1 - 2 - i 3 - osobowe wraz z
+            łazienkami oraz balkonami oraz urokliwy taras, na którym możesz
+            cieszyć się poranną kawą.
+          </p>
+        </div>
+        <div class="about-image reveal">
+          <!--
+        Zamień src na własne zdjęcie domku.
+        Możesz użyć: <img src="zdjecia/domek.jpg" alt="Widok domku" />
+      -->
+          <img
+            src="/zdjecia/013.jpg"
+            alt="Domek letniskowy nad Bałtykiem"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES STRIP ─────────────────────────────── -->
+    <div class="features">
+      <div class="features-grid">
+        <div class="feature-item reveal">
+          <div class="feature-icon">🛏</div>
+          <div class="feature-label">Sypialnie</div>
+          <div class="feature-value">6 poki</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">👥</div>
+          <div class="feature-label">Osoby</div>
+          <div class="feature-value">do 6 os.</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">🏖</div>
+          <div class="feature-label">Do plaży</div>
+          <div class="feature-value">10 min</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">🔥</div>
+          <div class="feature-label">Kominek</div>
+          <div class="feature-value">tak</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-label">Ogród</div>
+          <div class="feature-value">+ grill</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">🐶</div>
+          <div class="feature-label">Zwierzęta</div>
+          <div class="feature-value">mile widziane</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">📶</div>
+          <div class="feature-label">Wi-Fi</div>
+          <div class="feature-value">szybki</div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">🅿️</div>
+          <div class="feature-label">Parking</div>
+          <div class="feature-value">2 auta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── GALLERY ────────────────────────────────────── -->
+    <section id="gallery">
+      <div class="gallery-intro reveal">
+        <p class="section-eyebrow">Galeria</p>
+        <h2 class="section-title">
+          Przestrzeń,<br />która <em>zapada w pamięć</em>
+        </h2>
+        <p>Kliknij zdjęcie, aby zobaczyć je w pełnym rozmiarze.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/009.jpg" alt="Widok domku" loading="lazy" />
+          <div class="caption">Widok domku</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/005.jpg" alt="Salon" loading="lazy" />
+          <div class="caption">Przytulny salon</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/034.jpg" alt="Kuchnia" loading="lazy" />
+          <div class="caption">W pełni wyposażona kuchnia</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/007.jpg" alt="Sypialnia" loading="lazy" />
+          <div class="caption">Sypialnia główna</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/003.jpg" alt="Grill" loading="lazy" />
+          <div class="caption">Wiata z grillem</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="/zdjecia/033.jpg" alt="Łazienka" loading="lazy" />
+          <div class="caption">Łazienka</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+      <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <!-- ─── PRICING ────────────────────────────────────── -->
+    <!-- <section id="pricing">
+  <p class="section-eyebrow reveal">Cennik</p>
+  <h2 class="section-title reveal">Przejrzyste <em>ceny</em>,<br>bez niespodzianek</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card reveal">
+      <div class="pricing-season">Wrzesień – Maj</div>
+      <div class="pricing-name">Poza sezonem</div>
+      <div class="pricing-price"><span>od </span>350<span> zł/noc</span></div>
+      <div class="pricing-note">Minimalna długość: 3 noce</div>
+      <hr class="pricing-divider" />
+      <ul class="pricing-includes">
+        <li>Pościel i ręczniki</li>
+        <li>Wi-Fi</li>
+        <li>Parking</li>
+        <li>Drewno do kominka</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured reveal">
+      <div class="pricing-season">Czerwiec – Sierpień</div>
+      <div class="pricing-name">Sezon letni</div>
+      <div class="pricing-price"><span>od </span>550<span> zł/noc</span></div>
+      <div class="pricing-note">Minimalna długość: 7 nocy</div>
+      <hr class="pricing-divider" />
+      <ul class="pricing-includes">
+        <li>Pościel i ręczniki</li>
+        <li>Wi-Fi szybki</li>
+        <li>Parking (2 miejsca)</li>
+        <li>Zestaw do grillowania</li>
+        <li>Rowery gratis</li>
+      </ul>
+    </div>
+    <div class="pricing-card reveal">
+      <div class="pricing-season">Grudzień – Styczeń</div>
+      <div class="pricing-name">Sylwester</div>
+      <div class="pricing-price"><span>od </span>2 800<span> zł/3 noce</span></div>
+      <div class="pricing-note">Pakiet świąteczny</div>
+      <hr class="pricing-divider" />
+      <ul class="pricing-includes">
+        <li>Pościel i ręczniki</li>
+        <li>Wi-Fi</li>
+        <li>Parking</li>
+        <li>Drewno do kominka</li>
+        <li>Kosz powitalny</li>
+      </ul>
+    </div>
+  </div>
+</section> -->
+
+    <!-- ─── CONTACT ────────────────────────────────────── -->
+    <section id="contact">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-eyebrow">Kontakt</p>
+          <h2 class="section-title">Zapytaj<br />o <em>dostępność</em></h2>
+          <p>
+            Napisz do nas, a odpowiemy w ciągu 24 godzin. Chętnie odpowiemy na
+            wszystkie pytania dotyczące domku, okolicy i dostępnych terminów.
+          </p>
+          <div class="contact-detail">
+            <span class="contact-detail-icon">📧</span>
+            <span class="contact-detail-text">
+              <a href="mailto:twoj@gmail.com">twoj@gmail.com</a>
+            </span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon">📞</span>
+            <span class="contact-detail-text">
+              <a href="tel:+48600000000">+48 600 000 000</a>
+            </span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon">📍</span>
+            <span class="contact-detail-text"
+              >Grzybowo Polskie Miami, blisko Kołobrzegu</span
+            >
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal">
+          <!--
+        ════════════════════════════════════════════
+        FORMULARZ – Web3Forms (darmowy, bez limitu)
+        1. Wejdź na https://web3forms.com
+        2. Podaj swój Gmail → dostaniesz access_key
+        3. Wklej klucz poniżej w value="..."
+        Maile będą lądować prosto na Gmaila ✓
+        ════════════════════════════════════════════
+      -->
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <!-- Web3Forms access key – ZMIEŃ NA SWÓJ -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="TWOJ_KLUCZ_WEB3FORMS_TUTAJ"
+            />
+            <!-- Temat maila jaki przychodzi do Ciebie -->
+            <input
+              type="hidden"
+              name="subject"
+              value="Zapytanie o rezerwację domku"
+            />
+            <!-- Przekierowanie po wysłaniu – możesz zmienić na własną podstronę z podziękowaniem -->
+            <input type="hidden" name="redirect" value="false" />
+            <!-- Anti-spam honeypot -->
+            <input type="checkbox" name="botcheck" style="display: none" />
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Imię i nazwisko</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Jan Kowalski"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="jan@example.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="checkin">Przyjazd</label>
+                <input type="date" id="checkin" name="checkin" />
+              </div>
+              <div class="form-field">
+                <label for="checkout">Wyjazd</label>
+                <input type="date" id="checkout" name="checkout" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="guests">Liczba osób</label>
+              <select id="guests" name="guests">
+                <option value="">Wybierz…</option>
+                <option>1–2 osoby</option>
+                <option>3–4 osoby</option>
+                <option>5–6 osób</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Wiadomość</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Wpisz pytanie lub dodatkowe informacje…"
+              ></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-submit">Wyślij zapytanie</button>
+            </div>
+            <div class="form-success" id="formSuccess">
+              ✓ Wiadomość wysłana! Odpiszemy wkrótce.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─────────────────────────────────────── -->
+    <footer>
+      <div class="footer-logo">Dom<span> letniskowy&nbsp;Teresa</span></div>
+      <p class="footer-copy">© 2026 · Wszelkie prawa zastrzeżone</p>
+    </footer>
+
+    <script>
+      /* ── Navbar scroll ── */
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+      });
+
+      /* ── Hamburger ── */
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      }
+
+      /* ── Scroll reveal ── */
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      /* ── Lightbox ── */
+      function openLightbox(el) {
+        const img = el.querySelector('img');
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox-img').alt = img.alt;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      document.getElementById('lightbox').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('lightbox')) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      /* ── Web3Forms AJAX submit (bez przeładowania strony) ── */
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.btn-submit');
+        btn.textContent = 'Wysyłanie…';
+        btn.disabled = true;
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(form),
+          });
+          const json = await res.json();
+          if (json.success) {
+            form.reset();
+            document.getElementById('formSuccess').style.display = 'block';
+            btn.textContent = 'Wyślij zapytanie';
+            btn.disabled = false;
+          } else {
+            alert('Coś poszło nie tak. Spróbuj ponownie.');
+            btn.textContent = 'Wyślij zapytanie';
+            btn.disabled = false;
+          }
+        } catch {
+          alert('Błąd połączenia. Spróbuj ponownie.');
+          btn.textContent = 'Wyślij zapytanie';
+          btn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
